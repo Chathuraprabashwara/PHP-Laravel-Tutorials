@@ -1,12 +1,14 @@
 <h1>{{$heading}} </h1>
-@if (count($listings)==0)
+{{-- @if (count($listings)==0)
     <p> No listing found </P>
     
-@endif
+@endif --}}
 
-@foreach($listings as $listing)
+{{-- @foreach($listings as $listing)
     <h2>
-   {{ $listing['title']}}
+ <a href="/listings/{{$listing['id']}}">  {{ $listing['title']}}</a>
      </h2>
-{{$listing['description']}}</p>
- @endforeach
+<p>
+{{$listing['description']}}
+</p>
+ @endforeach --}}
