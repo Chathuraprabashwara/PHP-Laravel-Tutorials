@@ -17,11 +17,19 @@ use App\Models\Listing;
 //all listing
 Route::get('/', [ListingController::class,'index']);
 
+
 //create listing
 Route::get('listings/create', [ListingController::class,'create']);
 
 //store listing
 Route::post('listings', [ListingController::class,'store']);
+
+//show edit listing
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+//update listing
+Route::put('listings/{listing}',[ListingController::class,'update']);
+
 
 
 //single Listing
