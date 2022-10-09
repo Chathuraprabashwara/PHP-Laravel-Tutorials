@@ -12,7 +12,7 @@ class ListingController extends Controller
     public function index(){
    
         return view('listings.index',[
-            'listings' => Listing::latest()->filter(request(['tag','search']))->paginate(4)
+            'listings' => Listing::latest()->filter(request(['tag','search']))->simplepaginate(4)
         ]);
     }  
     //show create form
@@ -32,6 +32,10 @@ class ListingController extends Controller
         'description' => 'required',
         
     ]);
+
+    if($request->hasFile('logo')){
+        $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
     
     Listing::create($formFields);
 
